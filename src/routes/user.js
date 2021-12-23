@@ -13,6 +13,20 @@ router.get(
   userHandler.getAllUsers,
 );
 
+router.post(
+  '/id/:userId/lock',
+  tokenMiddleware.verifyAccessToken,
+  validate(userValidation.lockUser),
+  userHandler.lockUser,
+);
+
+router.post(
+  '/id/:userId/unlock',
+  tokenMiddleware.verifyAccessToken,
+  validate(userValidation.unlockUser),
+  userHandler.unlockUser,
+);
+
 router.get(
   '/id/:userId',
   tokenMiddleware.verifyAccessToken,

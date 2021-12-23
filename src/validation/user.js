@@ -1,5 +1,21 @@
 const Joi = require('joi');
 
+const lockUser = Joi.object({
+  params: Joi.object({
+    userId: Joi.number().integer().required(),
+  }),
+  query: Joi.object({}),
+  body: Joi.object({}),
+});
+
+const unlockUser = Joi.object({
+  params: Joi.object({
+    userId: Joi.number().integer().required(),
+  }),
+  query: Joi.object({}),
+  body: Joi.object({}),
+});
+
 const getUserById = Joi.object({
   params: Joi.object({
     userId: Joi.number().integer().required(),
@@ -24,6 +40,8 @@ const createUser = Joi.object({
 });
 
 module.exports = {
+  lockUser,
+  unlockUser,
   getUserById,
   createUser,
 };

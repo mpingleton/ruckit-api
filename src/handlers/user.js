@@ -5,6 +5,16 @@ const getAllUsers = async (req, res) => {
   res.send(200, users);
 };
 
+const lockUser = async (req, res) => {
+  await userService.setLock(req.params.userId, true);
+  res.send(200);
+};
+
+const unlockUser = async (req, res) => {
+  await userService.setLock(req.params.userId, false);
+  res.send(200);
+};
+
 const getUserById = async (req, res) => {
   const user = await userService.getUserById(req.params.userId);
   res.send(200, user);
@@ -32,6 +42,8 @@ const createUser = async (req, res) => {
 
 module.exports = {
   getAllUsers,
+  lockUser,
+  unlockUser,
   getUserById,
   getMe,
   createUser,

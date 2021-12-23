@@ -84,9 +84,20 @@ const createUser = async (
   });
 };
 
+const setLock = async (userId, locked) => {
+  await models.User.update({
+    is_locked: locked,
+  }, {
+    where: {
+      id: userId,
+    }
+  });
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
   getUserByUsername,
   createUser,
+  setLock,
 };
