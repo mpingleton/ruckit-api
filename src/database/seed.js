@@ -4,6 +4,15 @@ if (process.env.NODE_ENV !== 'production') {
 
 const { models, initDatabase, closeDatabase } = require('./index.js');
 
+const baseData = [
+  {
+    name: 'Whiteman AFB',
+  },
+  {
+    name: 'Barksdale AFB',
+  },
+];
+
 const userData = [
   {
     username: 'john.doe',
@@ -13,6 +22,7 @@ const userData = [
     rank: 'SrA',
     first_name: 'John',
     last_name: 'Doe',
+    base_id: 1,
   },
   {
     username: 'alice.doe',
@@ -22,6 +32,7 @@ const userData = [
     rank: 'SrA',
     first_name: 'Alice',
     last_name: 'Doe',
+    base_id: 1,
   },
   {
     username: 'jane.doe',
@@ -31,6 +42,7 @@ const userData = [
     rank: 'A1C',
     first_name: 'Jane',
     last_name: 'Doe',
+    base_id: 1,
   },
   {
     username: 'josh.snuffy',
@@ -40,12 +52,18 @@ const userData = [
     rank: 'TSgt',
     first_name: 'Josh',
     last_name: 'Snuffy',
+    base_id: 1,
   },
 ];
 
 const main = async () => {
   // Connect to the database.
   await initDatabase();
+
+  // Base data.
+  for (const base of baseData) {
+    await models.Base.create(base);
+  }
 
   // User data.
   for (const user of userData) {

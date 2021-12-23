@@ -35,6 +35,14 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    base_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'bases',
+        key: 'id',
+      },
+    },
   }, {
     tableName: 'users'
   });
