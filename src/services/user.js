@@ -1,5 +1,23 @@
 const { models } = require('../database');
 
+const getAllUsers = async () => {
+  const data = await models.User.findAll({});
+
+  const users = data.map((user) => ({
+    id: user.id,
+    username: user.username,
+    passphrase: user.passphrase,
+    role: user.role,
+    isLocked: user.is_locked,
+    rank: user.rank,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    baseId: user.base_id,
+  }));
+
+  return users;
+};
+
 const getUserById = async (userId) => {
   const data = await models.User.findOne({
     where: {
@@ -45,6 +63,7 @@ const getUserByUsername = async (username) => {
 };
 
 module.exports = {
+  getAllUsers,
   getUserById,
   getUserByUsername,
 };
