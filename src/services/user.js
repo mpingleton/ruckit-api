@@ -10,8 +10,8 @@ const getAllUsers = async () => {
     role: user.role,
     isLocked: user.is_locked,
     rank: user.rank,
-    firstName: user.firstName,
-    lastName: user.lastName,
+    firstName: user.first_name,
+    lastName: user.last_name,
     baseId: user.base_id,
   }));
 
@@ -32,8 +32,8 @@ const getUserById = async (userId) => {
     role: data.role,
     isLocked: data.is_locked,
     rank: data.rank,
-    firstName: data.firstName,
-    lastName: data.lastName,
+    firstName: data.first_name,
+    lastName: data.last_name,
     baseId: data.base_id,
   };
 
@@ -54,8 +54,8 @@ const getUserByUsername = async (username) => {
     role: data.role,
     isLocked: data.is_locked,
     rank: data.rank,
-    firstName: data.firstName,
-    lastName: data.lastName,
+    firstName: data.first_name,
+    lastName: data.last_name,
     baseId: data.base_id,
   };
 
