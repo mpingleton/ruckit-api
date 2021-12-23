@@ -4,6 +4,7 @@ const User = require('./models/User');
 const Token = require('./models/Token');
 const Base = require('./models/Base');
 const Call = require('./models/Call');
+const Message = require('./models/Message');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL);
 const models = {};
@@ -15,6 +16,7 @@ const initDatabase = async () => {
   models.Token = Token(sequelize);
   models.Base = Base(sequelize);
   models.Call = Call(sequelize);
+  models.Message = Message(sequelize);
 };
 
 const closeDatabase = async () => {
