@@ -10,7 +10,23 @@ const getMe = async (req, res) => {
   res.send(200, user);
 };
 
+const createUser = async (req, res) => {
+  await userService.createUser(
+    req.body.username,
+    req.body.passphrase,
+    req.body.role,
+    req.body.isLocked,
+    req.body.rank,
+    req.body.firstName,
+    req.body.lastName,
+    req.body.baseId,
+  );
+
+  res.send(201);
+};
+
 module.exports = {
   getAllUsers,
   getMe,
+  createUser,
 };
