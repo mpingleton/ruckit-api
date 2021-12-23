@@ -5,6 +5,11 @@ const getAllUsers = async (req, res) => {
   res.send(200, users);
 };
 
+const getUserById = async (req, res) => {
+  const user = await userService.getUserById(req.params.userId);
+  res.send(200, user);
+};
+
 const getMe = async (req, res) => {
   const user = await userService.getUserById(req.user.userId);
   res.send(200, user);
@@ -27,6 +32,7 @@ const createUser = async (req, res) => {
 
 module.exports = {
   getAllUsers,
+  getUserById,
   getMe,
   createUser,
 };

@@ -14,6 +14,13 @@ router.get(
 );
 
 router.get(
+  '/id/:userId',
+  tokenMiddleware.verifyAccessToken,
+  validate(userValidation.getUserById),
+  userHandler.getUserById,
+);
+
+router.get(
   '/me',
   tokenMiddleware.verifyAccessToken,
   userHandler.getMe,
