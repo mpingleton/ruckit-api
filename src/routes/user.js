@@ -8,6 +8,12 @@ const tokenMiddleware = require('../middleware/token');
 const router = express.Router();
 
 router.get(
+  '/in/base/my',
+  tokenMiddleware.verifyAccessToken,
+  userHandler.getUsersInMyBase,
+);
+
+router.get(
   '/',
   tokenMiddleware.verifyAccessToken,
   userHandler.getAllUsers,

@@ -18,6 +18,28 @@ const getAllUsers = async () => {
   return users;
 };
 
+const getUsersInBase = async (baseId) => {
+  const data = await models.User.findAll({
+    where: {
+      base_id: baseId,
+    },
+  });
+
+  const users = data.map((user) => ({
+    id: user.id,
+    username: user.username,
+    passphrase: user.passphrase,
+    role: user.role,
+    isLocked: user.is_locked,
+    rank: user.rank,
+    firstName: user.first_name,
+    lastName: user.last_name,
+    baseId: user.base_id,
+  }));
+
+  return users;
+};
+
 const getUserById = async (userId) => {
   const data = await models.User.findOne({
     where: {
@@ -96,6 +118,7 @@ const setLock = async (userId, locked) => {
 
 module.exports = {
   getAllUsers,
+  getUsersInBase,
   getUserById,
   getUserByUsername,
   createUser,

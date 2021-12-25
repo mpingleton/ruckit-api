@@ -1,5 +1,12 @@
 const userService = require('../services/user');
 
+const getUsersInMyBase = async (req, res) => {
+  const user = await userService.getUserById(req.user.userId);
+
+  const users = await userService.getUsersInBase(user.baseId);
+  res.send(200, users);
+};
+
 const getAllUsers = async (req, res) => {
   const users = await userService.getAllUsers();
   res.send(200, users);
@@ -41,6 +48,7 @@ const createUser = async (req, res) => {
 };
 
 module.exports = {
+  getUsersInMyBase,
   getAllUsers,
   lockUser,
   unlockUser,
