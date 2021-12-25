@@ -39,7 +39,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    milage: {
+    mileage: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },

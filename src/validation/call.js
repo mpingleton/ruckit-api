@@ -14,6 +14,9 @@ const placeCall = Joi.object({
   body: Joi.object({
     pickupLocation: Joi.string().required(),
     dropoffLocation: Joi.string().required(),
+    mileage: Joi.number().integer(),
+    riderId: Joi.number().integer(),
+    driverId: Joi.number().integer(),
   }),
 });
 
