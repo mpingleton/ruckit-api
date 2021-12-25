@@ -7,6 +7,12 @@ const tokenMiddleware = require('../middleware/token');
 
 const router = express.Router();
 
+router.get(
+  '/',
+  tokenMiddleware.verifyAccessToken,
+  callHandler.getCalls,
+);
+
 router.put(
   '/',
   tokenMiddleware.verifyAccessToken,
