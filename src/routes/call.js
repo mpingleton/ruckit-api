@@ -7,6 +7,11 @@ const tokenMiddleware = require('../middleware/token');
 
 const router = express.Router();
 
+router.put(
+  '/',
+  tokenMiddleware.verifyAccessToken,
+  validate(callValidation.placeCall),
+  callHandler.placeCall,
+);
 
-
-module.export = router;
+module.exports = router;
