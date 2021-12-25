@@ -1,5 +1,13 @@
 const Joi = require('joi');
 
+const getCalls = Joi.object({
+  params: Joi.object({}),
+  query: Joi.object({
+    status: Joi.number().integer(),
+  }),
+  body: Joi.object({}),
+});
+
 const placeCall = Joi.object({
   params: Joi.object({}),
   query: Joi.object({}),
@@ -10,5 +18,6 @@ const placeCall = Joi.object({
 });
 
 module.exports = {
+  getCalls,
   placeCall,
 };

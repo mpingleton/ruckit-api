@@ -8,7 +8,7 @@ const getCalls = async (req, res) => {
     return;
   }
 
-  const calls = await callService.getCalls(user.baseId, undefined);
+  const calls = await callService.getCalls(user.baseId, req.query.status);
   res.send(200, calls);
 };
 

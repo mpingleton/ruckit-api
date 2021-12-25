@@ -10,6 +10,7 @@ const router = express.Router();
 router.get(
   '/',
   tokenMiddleware.verifyAccessToken,
+  validate(callValidation.getCalls),
   callHandler.getCalls,
 );
 
