@@ -5,12 +5,12 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     passphrase: {
       type: DataTypes.STRING,
@@ -26,14 +26,15 @@ module.exports = (sequelize) => {
     },
     rank: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     first_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     last_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     base_id: {
       type: DataTypes.INTEGER,

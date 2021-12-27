@@ -5,12 +5,12 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     token: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
