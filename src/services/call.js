@@ -28,6 +28,30 @@ const getCalls = async (baseId, status) => {
   return calls;
 };
 
+const getCallById = async (callId) => {
+  const data = await models.Call.findOne({
+    where: {
+      id: callId,
+    },
+  });
+
+  const call = {
+    id: data.id,
+    baseId: data.base_id,
+    status: data.status,
+    riderId: data.rider_id,
+    driverId: data.driver_id,
+    pickupLocation: data.pickup_location,
+    dropoffLocation: data.dropoff_location,
+    mileage: data.mileage,
+    timestampCallPlaced: data.call_placed_timestamp,
+    timestampCallAssigned: data.call_assigned_timestamp,
+    timestampCallCompleted: data.call_completed_timestamp,
+  };
+
+  return call;
+};
+
 const insertCall = async (
   baseId,
   status,
@@ -56,5 +80,6 @@ const insertCall = async (
 
 module.exports = {
   getCalls,
+  getCallById,
   insertCall,
 };

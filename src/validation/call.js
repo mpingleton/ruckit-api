@@ -8,6 +8,14 @@ const getCalls = Joi.object({
   body: Joi.object({}),
 });
 
+const getCallById = Joi.object({
+  params: Joi.object({
+    callId: Joi.number().integer().required(),
+  }),
+  query: Joi.object({}),
+  body: Joi.object({}),
+});
+
 const placeCall = Joi.object({
   params: Joi.object({}),
   query: Joi.object({}),
@@ -22,5 +30,6 @@ const placeCall = Joi.object({
 
 module.exports = {
   getCalls,
+  getCallById,
   placeCall,
 };

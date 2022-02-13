@@ -12,6 +12,11 @@ const getCalls = async (req, res) => {
   res.send(200, calls);
 };
 
+const getCallById = async (req, res) => {
+  const call = await callService.getCallById(req.params.callId);
+  res.send(200, call);
+};
+
 const placeCall = async (req, res) => {
   const user = await userService.getUserById(req.user.userId);
   if (user === undefined || user === null) {
@@ -37,5 +42,6 @@ const placeCall = async (req, res) => {
 
 module.exports = {
   getCalls,
+  getCallById,
   placeCall,
 };

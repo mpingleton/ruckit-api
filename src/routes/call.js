@@ -14,6 +14,13 @@ router.get(
   callHandler.getCalls,
 );
 
+router.get(
+  '/id/:callId',
+  tokenMiddleware.verifyAccessToken,
+  validate(callValidation.getCallById),
+  callHandler.getCallById,
+);
+
 router.put(
   '/',
   tokenMiddleware.verifyAccessToken,
