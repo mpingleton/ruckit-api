@@ -10,6 +10,12 @@ const sendMessage = async (req, res) => {
     res.send(201);
 };
 
+const getMessagesByCall = async (req, res) => {
+    const messages = await messageService.getMessagesByCall(req.params.callId);
+    res.send(200, messages);
+};
+
 module.exports = {
     sendMessage,
+    getMessagesByCall,
 };

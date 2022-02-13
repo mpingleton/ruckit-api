@@ -14,4 +14,11 @@ router.post(
     messageHandler.sendMessage,
 );
 
+router.get(
+    '/in/call/:callId',
+    tokenMiddleware.verifyAccessToken,
+    validate(messageValidation.getMessagesByCall),
+    messageHandler.getMessagesByCall,
+);
+
 module.exports = router;
