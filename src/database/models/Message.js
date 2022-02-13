@@ -38,4 +38,6 @@ module.exports = (sequelize) => {
   }, {
     tableName: 'messages',
   });
+
+  return Message;
 };
