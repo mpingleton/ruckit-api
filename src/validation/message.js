@@ -10,7 +10,7 @@ const sendMessage = Joi.object({
     }),
 });
 
-const getMessagesByCall = Joi.object({
+const getMessagesInCall = Joi.object({
     params: Joi.object({
         callId: Joi.number().integer().required(),
     }),
@@ -20,5 +20,5 @@ const getMessagesByCall = Joi.object({
 
 module.exports = {
     sendMessage,
-    getMessagesByCall,
+    getMessagesInCall,
 };

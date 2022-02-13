@@ -14,7 +14,7 @@ const insertMessage = async (
     });
 };
 
-const getMessagesByCall = async (callId) => {
+const getMessagesInCall = async (callId) => {
     const data = await models.Message.findAll({
         where: {
             call_id: callId,
@@ -34,5 +34,5 @@ const getMessagesByCall = async (callId) => {
 
 module.exports = {
     insertMessage,
-    getMessagesByCall,
+    getMessagesInCall,
 };

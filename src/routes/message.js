@@ -17,8 +17,8 @@ router.post(
 router.get(
     '/in/call/:callId',
     tokenMiddleware.verifyAccessToken,
-    validate(messageValidation.getMessagesByCall),
-    messageHandler.getMessagesByCall,
+    validate(messageValidation.getMessagesInCall),
+    messageHandler.getMessagesInCall,
 );
 
 module.exports = router;
