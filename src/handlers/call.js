@@ -9,11 +9,33 @@ const getCalls = async (req, res) => {
   }
 
   const calls = await callService.getCalls(user.baseId, req.query.status);
+
+  let promises = [];
+  calls.map((call) => {
+    promises.push(userService.getUserById(call.riderId).then((data) => {
+      call.riderObject = data;
+    }));
+    promises.push(userService.getUserById(call.driverId).then((data) => {
+      call.driverObject = data;
+    }));
+  });
+  await Promise.all(promises);
+
   res.send(200, calls);
 };
 
 const getCallById = async (req, res) => {
   const call = await callService.getCallById(req.params.callId);
+
+  let promises = [];
+  promises.push(userService.getUserById(call.riderId).then((data) => {
+    call.riderObject = data;
+  }));
+  promises.push(userService.getUserById(call.driverId).then((data) => {
+    call.driverObject = data;
+  }));
+  await Promise.all(promises);
+
   res.send(200, call);
 };
 
